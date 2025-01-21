@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="icons8_calendar_2.ico">
+    <title>Web Calendar Application - SOF/23/B2/15</title>
+</head>
+<body>
+    <!-- Background Image Slider -->
+    <div class="background-slider">
+        <img src="https://img.freepik.com/free-photo/beautiful-strawberry-garden-sunrise-doi-ang-khang-chiang-mai-thailand_335224-762.jpg?ga=GA1.1.604100768.1718128979&semt=ais_hybrid" alt="Image 1">
+        <img src="https://img.freepik.com/premium-photo/railway-spring-forest-tunnel-love_93200-4978.jpg?ga=GA1.1.604100768.1718128979&semt=ais_hybrid" alt="Image 2">
+        <img src="https://img.freepik.com/free-photo/landscape-morning-fog-mountains-with-hot-air-balloons-sunrise_335224-794.jpg?ga=GA1.1.604100768.1718128979&semt=ais_hybrid" alt="Image 3">
+    </div>
+
+    <!-- Calendar Component -->
+    <div class="calendar">
+        <div class="calendar-header">
+            <button onclick="changeYear(-1)">&#9664;&#9664;</button>
+            <button onclick="changeMonth(-1)">&#9664;</button>
+            <h3 id="calendarTitle"></h3>
+            <button onclick="changeMonth(1)">&#9654;</button>
+            <button onclick="changeYear(1)">&#9654;&#9654;</button>
+        </div>
+        <div class="calendar-weekdays">
+            <div class="calendar-weekday">SUN</div>
+            <div class="calendar-weekday">MON</div>
+            <div class="calendar-weekday">TUE</div>
+            <div class="calendar-weekday">WED</div>
+            <div class="calendar-weekday">THU</div>
+            <div class="calendar-weekday">FRI</div>
+            <div class="calendar-weekday">SAT</div>
+        </div>
+        <div class="calendar-days" id="calendarDays"></div>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Disable the right-click menu
+    
+            // Create a message div
+            const messageDiv = document.createElement('div');
+            messageDiv.style.position = 'absolute';
+            messageDiv.style.top = `${event.clientY + 10}px`;
+            messageDiv.style.left = `${event.clientX + 10}px`;
+            messageDiv.style.padding = '10px';
+            messageDiv.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            messageDiv.style.color = 'white';
+            messageDiv.style.borderRadius = '5px';
+            messageDiv.style.fontSize = '14px';
+            messageDiv.innerText = 'Right-click is disabled on this page!';
+    
+            // Append the message to the body
+            document.body.appendChild(messageDiv);
+    
+            // Remove the message after 2 seconds
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 2000);
+        });
+    </script>
+    
+    
+</body>
+</html>
